@@ -1,0 +1,1 @@
+Open the notebook in Jupyter or Google Colab and run cells in order. Separate Python sections share state; they are not standalone programs. DATA_PATH=None uses synthetic demonstration data. Set DATA_PATH to your real CSV and map equivalent columns. No original dataset results are included.

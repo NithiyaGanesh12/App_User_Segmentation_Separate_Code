@@ -1,0 +1,10 @@
+# PCA visualization
+pca=PCA(n_components=2,random_state=42)
+coords=pca.fit_transform(Z)
+pca_df=pd.DataFrame({'user_id':df.user_id,'PC1':coords[:,0],'PC2':coords[:,1],'cluster_id':model.labels_})
+sample=pca_df.sample(min(10000,len(df)),random_state=42)
+fig,ax=plt.subplots(figsize=(11,7))
+sns.scatterplot(data=sample,x='PC1',y='PC2',hue='cluster_id',palette='tab10',s=10,alpha=.4,ax=ax)
+ax.set_title('PCA visualization — not independent validation')
+fig.tight_layout(); fig.savefig(OUT/'pca_clusters.png'); plt.show()
+print('Two-component explained variance:',pca.explained_variance_ratio_.sum())
